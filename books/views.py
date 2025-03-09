@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .serializers import BookListCreateSerializer
+from .models import Book
 
-# Create your views here.
+class BookListCreateAPiView(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookListCreateSerializer
+
+
+# book get, update, delete classini yozish kerak
